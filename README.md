@@ -1,100 +1,122 @@
-<!-- HERO SECTION -->
-<h1 align="center">🚀 Elite Robust Ontology</h1>
-<p align="center">
-  <b>Engineering Intelligent Software. Powering Digital Transformation.</b>
-</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Robust Ontology</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        header {
+            background: #0a192f;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        nav {
+            background: #172a45;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            color: #64ffda;
+        }
+        section {
+            padding: 40px;
+            text-align: center;
+        }
+        .services {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .card {
+            background: #f4f4f4;
+            padding: 20px;
+            width: 250px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        footer {
+            background: #0a192f;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            background: #64ffda;
+            color: #000;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background: #52e0c4;
+        }
+    </style>
+</head>
+<body>
 
-<p align="center">
-  <a href="#services">Services</a> •
-  <a href="#about">About</a> •
-  <a href="#projects">Projects</a> •
-  <a href="#contact">Contact</a>
-</p>
+<header>
+    <h1>Elite Robust Ontology</h1>
+    <p>Building Smart Software Solutions</p>
+</header>
 
----
+<nav>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+</nav>
 
-## 🌟 Welcome
+<section id="about">
+    <h2>About Us</h2>
+    <p>
+        Elite Robust Ontology is a forward-thinking software company specializing in
+        building modern, scalable, and efficient digital solutions for businesses.
+    </p>
+</section>
 
-At **Elite Robust Ontology**, we specialize in building scalable, intelligent, and high-performance software solutions that drive business success.
 
-> 💡 *We don’t just write code — we engineer digital excellence.*
 
----
+<section id="services">
+    <h2>Our Services</h2>
+    <div class="services">
+        <div class="card">
+            <h3>App Development</h3>
+            <p>We build powerful mobile applications for Android and iOS platforms.</p>
+        </div>
+        <div class="card">
+            <h3>Website Development</h3>
+            <p>Modern, responsive, and fast websites tailored to your business needs.</p>
+        </div>
+        <div class="card">
+            <h3>Desktop Software</h3>
+            <p>Custom desktop applications that improve productivity and efficiency.</p>
+        </div>
+    </div>
+</section>
 
-## 🧠 About Us
+<section id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: info@eliterobustontology.com</p>
+    <p>Phone: +256 XXX XXX XXX</p>
+    <button onclick="alert('Thank you for contacting us!')">Send Message</button>
+</section>
 
-We are a forward-thinking software development company focused on:
+<footer>
+    <p>&copy; 2026 Elite Robust Ontology. All rights reserved.</p>
+</footer>
 
-- Cutting-edge architecture
-- AI-driven systems
-- Robust and scalable platforms
-- Clean, maintainable code
-
-Our mission is to transform ideas into powerful digital solutions using modern technologies and best practices.
-
----
-
-## 🛠️ Services
-
-| Service | Description |
-|--------|------------|
-| 💻 **Custom Software Development** | Tailored systems built to your exact needs |
-| 🌐 **Web Development** | Modern, responsive, and fast web apps |
-| 📱 **Mobile App Development** | iOS & Android applications |
-| ☁️ **Cloud Solutions** | Scalable cloud infrastructure & deployment |
-| 🤖 **AI & Automation** | Smart systems that optimize operations |
-
----
-
-## 🚀 Projects
-
-### 🔹 Enterprise Management System
-A scalable platform designed for handling complex enterprise workflows.
-
-### 🔹 AI Analytics Dashboard
-Real-time data visualization and predictive analytics system.
-
-### 🔹 E-Commerce Platform
-High-performance online shopping system with secure payment integration.
-
----
-
-## ⚙️ Tech Stack
-
-<p>
-  <img src="https://img.shields.io/badge/Frontend-React-blue?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Backend-Node.js-green?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Cloud-AWS-orange?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Database-PostgreSQL-blue?style=for-the-badge"/>
-</p>
-
----
-
-## 📈 Why Choose Us?
-
-✅ Clean and scalable architecture  
-✅ Performance-driven development  
-✅ Strong focus on security  
-✅ Agile and transparent workflow  
-✅ Dedicated support and maintenance  
-
----
-
-## 🤝 Clients & Partnerships
-
-We collaborate with startups, enterprises, and innovators to deliver world-class software solutions.
-
----
-
-## 📬 Contact Us
-
-📧 Email: info@eliterobustontology.com  
-🌍 Website: *Coming Soon*  
-📍 Location: Kampala, Uganda  
-
----
-
-<p align="center">
-  <b>Elite Robust Ontology © 2026</b><br/>
-  <i>Building the Future, One Line of Code at a Time.</i>
-</p>
+</body>
+</html>
