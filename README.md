@@ -108,8 +108,8 @@
 
 <section id="contact">
     <h2>Contact Us</h2>
-    <p>Email: info@eliterobustontology.com</p>
-    <p>Phone: +256 XXX XXX XXX</p>
+    <p>Email: eliterobustontology@gmail.com</p>
+    <p>Phone: +256768058124</p>
     <button onclick="alert('Thank you for contacting us!')">Send Message</button>
 </section>
 
