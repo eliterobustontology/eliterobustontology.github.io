@@ -51,6 +51,8 @@ const page = params.get("page");
 
 if (page) {
     sessionStorage.setItem("pageName", page);
+}else{
+    sessionStorage.removeItem("pageName");
 }
 
 //?page=home
