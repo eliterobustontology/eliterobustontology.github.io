@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script>const ROUTECSS=e=>{const t=document.createElement("style");t.textContent=e,document.head.appendChild(t)};const ROUTEJS = (jsCode) => {const script = document.createElement("script");script.textContent = `(function(){ ${jsCode} })();`;document.head.appendChild(script);};</script>
+    <script></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
@@ -15,7 +15,87 @@
         script.defer = true;
         document.head.appendChild(script);
     } else {
-        alert("offline");
-    }
+        if (localStorage.getItem("Updates")) {
+
+            function navigated(page, pageBack) {
+                // Prepare state
+                const pageData = { page, backPage: pageBack };
+
+                // Determine history: push first, replace subsequent navigations
+                if (history.state && history.state.backPage) {
+                    history.replaceState(pageData, "", `?page=${page}`);
+                } else {
+                    history.pushState(pageData, "", `?page=${page}`);
+                }
+
+                // Save current page and back page
+                sessionStorage.setItem("pageName", page);
+                sessionStorage.setItem("backpageName", pageBack);
+
+                // --- Helper functions ---
+
+                // Inject JS safely (IIFE + cleanup)
+                function ROUTEJS(jsCode) {
+                    // Remove all previously injected dynamic scripts
+                    document.querySelectorAll("script.dynamic-script").forEach(s => s.remove());
+
+                    const script = document.createElement("script");
+                    script.className = "dynamic-script";
+                    script.textContent = `(function(){ ${jsCode} })();`;
+                    document.body.appendChild(script);
+                }
+
+                // Inject CSS safely (cleanup old dynamic styles)
+                function ROUTECSS(cssCode) {
+                    document.querySelectorAll("style.dynamic-style").forEach(s => s.remove());
+
+                    const style = document.createElement("style");
+                    style.className = "dynamic-style";
+                    style.textContent = cssCode;
+                    document.head.appendChild(style);
+                }
+
+                // Render page from localStorage
+                const html = localStorage.getItem(page);
+                const css = localStorage.getItem(page + "Styles");
+                const js = localStorage.getItem(page + "Functions");
+
+                if (html) document.body.innerHTML = html;
+                if (css) ROUTECSS(css);
+                if (js) ROUTEJS(js);
+
+                // --- Handle back/forward ---
+                window.onpopstate = (event) => {
+                    const state = event.state;
+                    const backPageStored = sessionStorage.getItem("backpageName");
+
+                    let popPage;
+                    if (state && state.page) {
+                        popPage = (state.page === backPageStored) ? state.page : backPageStored || state.page;
+                    } else {
+                        popPage = backPageStored || "Home";
+                    }
+
+                    sessionStorage.setItem("pageName", popPage);
+
+                    const html = localStorage.getItem(popPage);
+                    const css = localStorage.getItem(popPage + "Styles");
+                    const js = localStorage.getItem(popPage + "Functions");
+
+                    if (html) document.body.innerHTML = html;
+                    if (css) ROUTECSS(css);
+                    if (js) ROUTEJS(js);
+                };
+            };
+
+            navigated("Home","Home");
+            
+        } else {
+
+            alert("offline");
+            
+        };
+        
+    };
 </script>
 </html>
