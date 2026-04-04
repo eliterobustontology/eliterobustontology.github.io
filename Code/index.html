@@ -15,14 +15,6 @@
         body.innerHTML=localStorage.getItem(NAME);
         ROUTECSS(localStorage.getItem(CSSNAME));
         ROUTEJS(localStorage.getItem(JSNAME));
-    }else{
-        const body=document.querySelector("body");
-        const NAME=sessionStorage.getItem("pageName");
-        const CSSNAME=NAME+"Styles";
-        const JSNAME=NAME+"Functions";
-        body.innerHTML=localStorage.getItem(NAME);
-        ROUTECSS(localStorage.getItem(CSSNAME));
-        ROUTEJS(localStorage.getItem(JSNAME)); 
-    };
+    }
 </script>
 </html>
