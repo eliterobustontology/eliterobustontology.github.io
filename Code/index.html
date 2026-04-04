@@ -1,29 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"><script src="./index.js"></script>
+    <meta charset="UTF-8">
+    <script>const ROUTECSS=e=>{const t=document.createElement("style");t.textContent=e,document.head.appendChild(t)};const ROUTEJS = (jsCode) => {const script = document.createElement("script");script.textContent = `(function(){ ${jsCode} })();`;document.head.appendChild(script);};</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body></body>
+<body>
+</body>
 <script>
-    const NAME=sessionStorage.getItem("pageName");
-    if(!sessionStorage.getItem("pageName")||!localStorage.getItem(NAME)){
-        const body=document.querySelector("body");
-        const NAME="Home";
-        const CSSNAME=NAME+"Styles";
-        const JSNAME=NAME+"Functions";
-        body.innerHTML=localStorage.getItem(NAME);
-        ROUTECSS(localStorage.getItem(CSSNAME));
-        ROUTEJS(localStorage.getItem(JSNAME));
-    }else{
-        const body=document.querySelector("body");
-        const NAME=sessionStorage.getItem("pageName");
-        const CSSNAME=NAME+"Styles";
-        const JSNAME=NAME+"Functions";
-        body.innerHTML=localStorage.getItem(NAME);
-        ROUTECSS(localStorage.getItem(CSSNAME));
-        ROUTEJS(localStorage.getItem(JSNAME));
+    if (navigator.onLine) {
+        const script = document.createElement("script");
+        script.src = "./index.js";
+        script.defer = true;
+        document.head.appendChild(script);
+    } else {
+        alert("offline");
     }
 </script>
 </html>

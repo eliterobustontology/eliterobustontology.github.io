@@ -1,7 +1,7 @@
-const Name=document.querySelector(".Name");
+const Namee=document.querySelector(".Name");
 
-Name.addEventListener("click",()=>{
+Namee.addEventListener("click",()=>{
 
-    location.href='./index.html?page=Contact';
+    navigate("Contact","Home");
 
 });
