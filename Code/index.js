@@ -1,5 +1,15 @@
 const ROUTECSS=e=>{const t=document.createElement("style");t.textContent=e,document.head.appendChild(t)};const ROUTEJS = (jsCode) => {const script = document.createElement("script");script.textContent = `(function(){ ${jsCode} })();`;document.head.appendChild(script);};
 
+if (localStorage.getItem("Splash") === "False" ) {
+
+    alert("Disk")
+    
+} else {
+
+    alert("Diskd")
+    
+}
+
 fetch("./Test/Test.json")
 .then(res =>res.json())
 .then(data =>{
