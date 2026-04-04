@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><script src="./index.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <a href="./Main.html?Home">Next Page</a>
+    
+</body>
+<script>
+    if(localStorage.getItem("Updates")){
+        const body=document.querySelector("body");
+        body.innerHTML=localStorage.getItem("Home");
+        ROUTECSS(localStorage.getItem("HomeStyles"));
+        ROUTEJS(localStorage.getItem("HomeFunctions"));
+        return;
+    };
+</script>
+</html>
