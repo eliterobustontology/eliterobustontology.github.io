@@ -1,6 +1,5 @@
 <header>
 
-    <h1>Home Page</h1>
-    
+    <h1 class="Name">Home Page</h1>
 
 </header>

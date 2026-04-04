@@ -7,15 +7,7 @@
 </head>
 <body></body>
 <script>
-    if(sessionStorage.getItem("pageName")){
-        const body=document.querySelector("body");
-        const NAME=sessionStorage.getItem("pageName");
-        const CSSNAME=NAME+"Styles";
-        const JSNAME=NAME+"Functions";
-        body.innerHTML=localStorage.getItem(NAME);
-        ROUTECSS(localStorage.getItem(CSSNAME));
-        ROUTEJS(localStorage.getItem(JSNAME));
-    }else{
+    if(!sessionStorage.getItem("pageName")||sessionStorage.getItem("pageName") === "Home" ){
         const body=document.querySelector("body");
         const NAME="Home";
         const CSSNAME=NAME+"Styles";
@@ -23,6 +15,14 @@
         body.innerHTML=localStorage.getItem(NAME);
         ROUTECSS(localStorage.getItem(CSSNAME));
         ROUTEJS(localStorage.getItem(JSNAME));
-    }
+    }else{
+        const body=document.querySelector("body");
+        const NAME=sessionStorage.getItem("pageName");
+        const CSSNAME=NAME+"Styles";
+        const JSNAME=NAME+"Functions";
+        body.innerHTML=localStorage.getItem(NAME);
+        ROUTECSS(localStorage.getItem(CSSNAME));
+        ROUTEJS(localStorage.getItem(JSNAME)); 
+    };
 </script>
 </html>

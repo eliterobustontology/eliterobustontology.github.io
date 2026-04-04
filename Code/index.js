@@ -54,3 +54,8 @@ if (page) {
 }
 
 //?page=home
+
+// Browsing Navigation
+window.addEventListener("beforeunload", () => {
+    sessionStorage.removeItem("pageName");
+});
