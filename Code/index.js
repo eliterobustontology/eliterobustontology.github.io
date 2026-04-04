@@ -43,3 +43,14 @@ fetch("./Library/Functions.js")
 // Call the Functions
 ROUTECSS(localStorage.getItem("HomeStyles"));
 ROUTEJS(localStorage.getItem("Fun"));
+
+const params = new URLSearchParams(window.location.search);
+
+// Example: ./main.html?page=home
+const page = params.get("page");
+
+if (page) {
+    sessionStorage.setItem("pageName", page);
+}
+
+//?page=home

@@ -8,8 +8,11 @@
 <body></body>
 <script>
     const body=document.querySelector("body");
-    body.innerHTML=localStorage.getItem("Home");
-    ROUTECSS(localStorage.getItem("HomeStyles"));
-    ROUTEJS(localStorage.getItem("HomeFunctions"));
+    const NAME=sessionStorage.getItem("pageName");
+    const CSSNAME=NAME+"Styles";
+    const JSNAME=NAME+"Functions";
+    body.innerHTML=localStorage.getItem(NAME);
+    ROUTECSS(localStorage.getItem(CSSNAME));
+    ROUTEJS(localStorage.getItem(JSNAME));
 </script>
 </html>
