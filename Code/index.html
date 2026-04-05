@@ -2,100 +2,75 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script></script>
+    <script>localStorage.setItem("Env","Deva");localStorage.setItem("Config","Dev")</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Elite Robust Ontology</title>
 </head>
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+        font-size: 20px;
+        text-align: center;
+        font-family: Cambria,sans-serif;
+        text-decoration: none;
+        list-style: none;
+        border: none;
+        outline: none;
+    }
+    body{
+        background: fixed;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+    .PoweredBy{
+        color:forestgreen;
+    }
+    .BottomPower{
+        position: absolute;
+        left:0;
+        width:100%;
+        height: 100px;
+        bottom: 0;
+        display: block;
+    }
+</style>
 <body>
 </body>
 <script>
-    if (navigator.onLine) {
-        const script = document.createElement("script");
-        script.src = "./index.js";
-        script.defer = true;
-        document.head.appendChild(script);
-    } else {
-        if (localStorage.getItem("Updates")) {
-
-            function navigated(page, pageBack) {
-                // Prepare state
-                const pageData = { page, backPage: pageBack };
-
-                // Determine history: push first, replace subsequent navigations
-                if (history.state && history.state.backPage) {
-                    history.replaceState(pageData, "", `?page=${page}`);
-                } else {
-                    history.pushState(pageData, "", `?page=${page}`);
-                }
-
-                // Save current page and back page
-                sessionStorage.setItem("pageName", page);
-                sessionStorage.setItem("backpageName", pageBack);
-
-                // --- Helper functions ---
-
-                // Inject JS safely (IIFE + cleanup)
-                function ROUTEJS(jsCode) {
-                    // Remove all previously injected dynamic scripts
-                    document.querySelectorAll("script.dynamic-script").forEach(s => s.remove());
-
-                    const script = document.createElement("script");
-                    script.className = "dynamic-script";
-                    script.textContent = `(function(){ ${jsCode} })();`;
-                    document.body.appendChild(script);
-                }
-
-                // Inject CSS safely (cleanup old dynamic styles)
-                function ROUTECSS(cssCode) {
-                    document.querySelectorAll("style.dynamic-style").forEach(s => s.remove());
-
-                    const style = document.createElement("style");
-                    style.className = "dynamic-style";
-                    style.textContent = cssCode;
-                    document.head.appendChild(style);
-                }
-
-                // Render page from localStorage
-                const html = localStorage.getItem(page);
-                const css = localStorage.getItem(page + "Styles");
-                const js = localStorage.getItem(page + "Functions");
-
-                if (html) document.body.innerHTML = html;
-                if (css) ROUTECSS(css);
-                if (js) ROUTEJS(js);
-
-                // --- Handle back/forward ---
-                window.onpopstate = (event) => {
-                    const state = event.state;
-                    const backPageStored = sessionStorage.getItem("backpageName");
-
-                    let popPage;
-                    if (state && state.page) {
-                        popPage = (state.page === backPageStored) ? state.page : backPageStored || state.page;
-                    } else {
-                        popPage = backPageStored || "Home";
-                    }
-
-                    sessionStorage.setItem("pageName", popPage);
-
-                    const html = localStorage.getItem(popPage);
-                    const css = localStorage.getItem(popPage + "Styles");
-                    const js = localStorage.getItem(popPage + "Functions");
-
-                    if (html) document.body.innerHTML = html;
-                    if (css) ROUTECSS(css);
-                    if (js) ROUTEJS(js);
-                };
-            };
-
-            navigated("Home","Home");
-            
-        } else {
-
-            alert("offline");
-            
-        };
+    const ROUTECSS=e=>{const t=document.createElement("style");t.textContent=e,document.head.appendChild(t)};const BODY=document.querySelector("body");
+    const ROUTEJS = (jsCode) => {const script = document.createElement("script");script.textContent = `(function(){ ${jsCode} })();`;document.head.appendChild(script);};
+    const ROUTE=(e,t)=>{const a={page:e,backPage:t};history.state&&history.state.backPage?history.replaceState(a,"",`?page=${e}`):history.pushState(a,"",`?page=${e}`),sessionStorage.setItem("pageName",e),sessionStorage.setItem("backpageName",t);const o=localStorage.getItem(e),s=localStorage.getItem(e+"Styles"),g=localStorage.getItem(e+"Functions");o&&(document.body.innerHTML=o),s&&ROUTECSS(s),g&&ROUTEJS(g),window.onpopstate=e=>{const t=e.state,a=sessionStorage.getItem("backpageName");let o;o=t&&t.page?t.page===a?t.page:a||t.page:a||"Home",sessionStorage.setItem("pageName",o);const s=localStorage.getItem(o),g=localStorage.getItem(o+"Styles"),n=localStorage.getItem(o+"Functions");s&&(document.body.innerHTML=s),g&&ROUTECSS(g),n&&ROUTEJS(n)}};
+    const AUTOSTART=()=>{if (localStorage.getItem("Env") === "Dev" ) {const script = document.createElement("script");script.src = "./index.js";script.defer = true;document.head.appendChild(script);} else {const script = document.createElement("script");script.src = "https://erou-andrew-richard.github.io/erou-andrew-richard/Connection.js";script.defer = true;document.head.appendChild(script);};};if (localStorage.getItem("Env") === "Dev" ) {ROUTE("Home","Home");AUTOSTART();ROUTEJS(localStorage.getItem("CONFIG"));}else{if (localStorage.getItem("Updates")){ROUTE("Home","Home");ROUTEJS(localStorage.getItem("CONFIG"));if (navigator.onLine){AUTOSTART();};}else{if (navigator.onLine){AUTOSTART();}else{
+        BODY.innerHTML=`
+            <br><br>
+            <h1>OFFLINE</h1>
+            <br><br>
+            <p>Your Offline,Please Connect To The Internet.</p>
+            <br><br>
+            <button>Connect Now</button>
+            <br><br>
+            <p>If Issue Persists Contact Admin Via.</p>
+            <br>
+            <a href="eroinnovations9@gmail.com">Email</a>
+            <br><br>
+            <a href="eroinnovations9@gmail.com">Instagram</a>
+            <br><br>
+            <a href="eroinnovations9@gmail.com">Instagram</a>
+            <br><br>
+            <a href="eroinnovations9@gmail.com">Whats App</a>
+            <div class="BottomPower">
+                <p>Powered By <br><b class="PoweredBy">Elite Robust Ontology</b></p>
+            </div>
+        `;
         
-    };
+    }
+            
+        }
+            
+    }
+
+
 </script>
 </html>

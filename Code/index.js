@@ -1,12 +1,10 @@
-const ROUTECSS=e=>{const t=document.createElement("style");t.textContent=e,document.head.appendChild(t)};const ROUTEJS = (jsCode) => {const script = document.createElement("script");script.textContent = `(function(){ ${jsCode} })();`;document.head.appendChild(script);};
-
 if (localStorage.getItem("Splash") === "False" ) {
 
-    alert("Disk")
+   
     
 } else {
 
-    alert("Diskd")
+   
     
 }
 
@@ -53,7 +51,7 @@ fetch("./Library/Functions.js")
 ROUTECSS(localStorage.getItem("HomeStyles"));
 ROUTEJS(localStorage.getItem("Fun"));
 
-function navigate(page, pageBack) {
+function navigate() {
     // Prepare state
     const pageData = { page, backPage: pageBack };
 
