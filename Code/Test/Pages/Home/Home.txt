@@ -1,5 +1,0 @@
-<header>
-
-    <h1 class="Name">Home Page</h1>
-
-</header>

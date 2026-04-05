@@ -1,5 +1,0 @@
-const Hi=()=>{
-
-    alert("Working")
-
-}
