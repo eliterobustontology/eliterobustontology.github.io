@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="google-site-verification" content="fchzQv4-omFNl1zKfYA6XrWyDKxTOovNb44Tav-YCjQ" />
     <script src="https://apis.google.com/js/platform.js?onload=renderOptIn" async defer></script>
+    <script id='merchantWidgetScript' src="https://www.gstatic.com/shopping/merchant/merchantwidget.js" defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Elite Robust Onotology</title>
     <style>
@@ -129,5 +130,17 @@
         });
     });
   }
+</script>
+<script>
+  merchantWidgetScript.addEventListener('load', function () {
+    merchantwidget.start({
+         // REQUIRED FIELDS
+         merchant_id: 5792752358,
+
+         // OPTIONAL FIELDS
+         position: POSITION,
+         region: REGION,
+    });
+  });
 </script>
 </html>
