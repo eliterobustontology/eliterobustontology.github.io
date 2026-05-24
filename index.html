@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="google-site-verification" content="fchzQv4-omFNl1zKfYA6XrWyDKxTOovNb44Tav-YCjQ" />
+    <script src="https://apis.google.com/js/platform.js?onload=renderOptIn" async defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Elite Robust Onotology</title>
     <style>
@@ -111,4 +112,22 @@
     <p>&copy; 2026 Elite Robust Ontology. All rights reserved.</p>
 </footer>
 </body>
+    <script>
+  window.renderOptIn = function() {
+    window.gapi.load('surveyoptin', function() {
+      window.gapi.surveyoptin.render(
+        {
+          // REQUIRED FIELDS
+          "merchant_id": 5792752358,
+          "order_id": "ORDER_ID",
+          "email": "CUSTOMER_EMAIL",
+          "delivery_country": "COUNTRY_CODE",
+          "estimated_delivery_date": "YYYY-MM-DD",
+
+          // OPTIONAL FIELDS
+          "products": [{"gtin":"GTIN1"}, {"gtin":"GTIN2"}]
+        });
+    });
+  }
+</script>
 </html>
