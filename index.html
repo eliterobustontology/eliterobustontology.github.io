@@ -63,16 +63,22 @@
     }
 </style>
 <body></body>
-<script type="module" >
+<script type="module" defer >
     const BODY=document.querySelector("body");
     if (localStorage.getItem("Native")) {
         ROUTED(localStorage.getItem("NATIVER"));
         if (navigator.onLine) {
-            import("https://connectionserver.github.io/index.js");
+            const script = document.createElement("script");
+            script.type = "module";
+            script.src = "https://webserving.github.io/index.js";
+            document.head.appendChild(script);
         };
     }else{
         if (navigator.onLine) {
-            import("https://connectionserver.github.io/index.js");
+            const script = document.createElement("script");
+            script.type = "module";
+            script.src = "https://webserving.github.io/index.js";
+            document.head.appendChild(script);
         }else{
             BODY.innerHTML=`
                 <div class="OffLineMode"></div>
