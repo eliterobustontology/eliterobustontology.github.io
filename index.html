@@ -2,9 +2,116 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="module" src="https://connectionserver.github.io/index.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><script>localStorage.setItem("ENV","WEB")</script>
+    <script>const ROUTED=e=>{const t=document.createElement("script");t.textContent=e,document.head.appendChild(t)};</script>
     <title>Elite_Robust_Ontology</title>
 </head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        font-size: 20px;
+        font-family: Cambria,sans-serif;
+        text-decoration: none;
+        list-style: none;
+        border: none;
+    }
+    body{
+        position: fixed;
+        width:100%;
+        height:100%;
+        overflow:hidden;
+        text-align: center;
+    }
+    .OffLineTitle{
+        font-size: 30px;
+        margin: 20%;
+        color:red;
+    }
+    .OptionOfflineHolder{
+        position: absolute;
+        background: transparent;
+        height: 100px;
+        width:100%;
+        bottom: 0;
+        display: inline-flex;
+        left: 0;
+    }
+    .OfflineButton{
+        position: relative;
+        height: 50px;
+        margin: auto;
+        width: 45%;
+        border: none;
+        border-radius: 10px;
+        color: white;
+    }
+    #Retry{
+        background: forestgreen;
+    }
+    #Contact{
+        background: brown;
+    }
+    .OffLineMode{
+        position: absolute;
+        background: black;
+        right: 5%;
+        width:50px;
+        height: 50px;
+        margin: 3%;
+        border-radius: 100%;
+    }
+</style>
 <body></body>
+<script type="module" >
+    const BODY=document.querySelector("body");
+    if (localStorage.getItem("Native")) {
+        ROUTED(localStorage.getItem("NATIVER"));
+        if (navigator.onLine) {
+            import("https://connectionserver.github.io/index.js");
+        };
+    }else{
+        if (navigator.onLine) {
+            import("https://connectionserver.github.io/index.js");
+        }else{
+            BODY.innerHTML=`
+                <div class="OffLineMode"></div>
+                <h1 class="OffLineTitle">OFFLINE</h1>
+                <h3>No Internet Connection!</h3>
+                <p>Check Your Internet Connection</p>
+                <div class="OptionOfflineHolder">
+                    <button id="Retry" class="OfflineButton">Retry</button>
+                    <button id="Contact" class="OfflineButton">Contact Admin</button>
+                </div>
+            `;
+            const Retry=document.querySelector("#Retry");
+            const Contact=document.querySelector("#Contact");
+            const OffLineMode=document.querySelector(".OffLineMode");
+            OffLineMode.addEventListener("click",()=>{
+                if (localStorage.getItem("AppMode")) {
+                    localStorage.removeItem("AppMode");
+                    location.reload();
+                }else{
+                    localStorage.setItem("AppMode","True");
+                    location.reload();
+                };
+            });
+            Retry.addEventListener("click",()=>{
+                location.reload();
+            });
+            Contact.addEventListener("click",()=>{
+                open("https://eliteship.github.io/ContactUs/");
+            });
+            if (localStorage.getItem("AppMode")) {
+                BODY.style.background="black";
+                BODY.style.color="white";
+                OffLineMode.style.background="white";
+            } else {
+                BODY.style.background="white";
+                BODY.style.color="black";
+                OffLineMode.style.background="black";
+            };
+        };
+    };
+</script>
 </html>
