@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"><script>localStorage.setItem("ENV","WEB")</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>const ROUTED=e=>{const t=document.createElement("script");t.textContent=e,document.head.appendChild(t)};</script>
     <title>Elite_Robust_Ontology</title>
 </head>
@@ -63,13 +63,42 @@
     }
 </style>
 <body></body>
-<script type="module" defer >
+<script type="module" >
+    const CHECK_WHITE_SCREEN = () => {
+        let reloaded = false;
+        setInterval(() => {
+            if (reloaded) return;
+            const body = document.body;
+            if (!body || body.innerHTML.trim() === "") return;
+            const bg = getComputedStyle(body).backgroundColor;
+            const isWhite =
+                bg === "rgb(255, 255, 255)" ||
+                bg === "rgba(0, 0, 0, 0)";
+            const visibleElements = [...body.querySelectorAll("*")].some(el => {
+                const rect = el.getBoundingClientRect();
+                const style = getComputedStyle(el);
+                return (
+                    rect.width > 0 &&
+                    rect.height > 0 &&
+                    style.display !== "none" &&
+                    style.visibility !== "hidden" &&
+                    style.opacity !== "0"
+                );
+            });
+            if (isWhite && !visibleElements) {
+                reloaded = true;
+                location.reload();
+            }
+        }, 2000);
+    };
     const BODY=document.querySelector("body");
     if (localStorage.getItem("Native")) {
         ROUTED(localStorage.getItem("NATIVER"));
+        CHECK_WHITE_SCREEN();
         if (navigator.onLine) {
             const script = document.createElement("script");
             script.type = "module";
+            script.defer=true;
             script.src = "https://webserving.github.io/index.js";
             document.head.appendChild(script);
         };
@@ -77,6 +106,7 @@
         if (navigator.onLine) {
             const script = document.createElement("script");
             script.type = "module";
+            script.defer=true;
             script.src = "https://webserving.github.io/index.js";
             document.head.appendChild(script);
         }else{
