@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"><link rel="shortcut icon" href="logo.jpeg" type="image/x-icon">
     <script>(() => {function applyTheme() {const savedTheme = localStorage.getItem("theme");if (savedTheme) {document.documentElement.setAttribute("data-theme", savedTheme);return;}const isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;document.documentElement.setAttribute("data-theme",isDark ? "dark" : "light");}window.setTheme = function(theme) {localStorage.setItem("theme", theme);document.documentElement.setAttribute("data-theme", theme);};window.clearTheme = function() {localStorage.removeItem("theme");applyTheme();};applyTheme();window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {if (!localStorage.getItem("theme")){applyTheme();}});})();</script>
     <script>localStorage.setItem("ENV","WEB")</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
