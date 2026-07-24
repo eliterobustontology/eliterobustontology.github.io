@@ -11,15 +11,73 @@
     <title>Elite Robust Ontology</title>
     <script type="application/ld+json">
         {
-          "@context":"https://schema.org",
-          "@type":"Organization",
-          "name":"Elite Robust Ontology",
-          "url":"https://eliterobustontology.github.io/",
-          "logo":"https://eliterobustontology.github.io/logo.jpeg",
-          "description":"Official website of Elite Robust Ontology.",
-          "sameAs":[
-            "https://github.com/EliteRobustOntology"
-          ]
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                "@type": "Organization",
+                "@id": "https://eliterobustontology.github.io/#organization",
+                "name": "Elite Robust Ontology",
+                "alternateName": "ERO",
+                "url": "https://eliterobustontology.github.io/",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://eliterobustontology.github.io/logo.jpeg",
+                    "width": 512,
+                    "height": 512
+                },
+                "image": "https://eliterobustontology.github.io/logo.jpeg",
+                "description": "Elite Robust Ontology is a software development organization specializing in web applications, desktop software, cloud solutions, artificial intelligence, mobile applications, APIs, and modern software engineering.",
+                "email": "mailto:eliterobustontology@gmail.com",
+                "telephone": "+256 768 058 124",
+                "foundingDate": "2025-01-01",
+                "founder": {
+                    "@type": "Organization",
+                    "name": "Elite Robust Ontology"
+                },
+                "sameAs": [
+                    "https://github.com/EliteRobustOntology",
+                    "https://www.linkedin.com/company/your-company",
+                    "https://www.facebook.com/your-page",
+                    "https://www.instagram.com/eliterobustontology_",
+                    "https://x.com/elite_robust",
+                    "https://www.youtube.com/@eliterobustontology"
+                ]
+                },
+                {
+                "@type": "WebSite",
+                "@id": "https://eliterobustontology.github.io/#website",
+                "url": "https://eliterobustontology.github.io/",
+                "name": "Elite Robust Ontology",
+                "description": "Official website Of Elite Robust Ontology.",
+                "publisher": {
+                    "@id": "https://eliterobustontology.github.io/#organization"
+                },
+                "inLanguage": "en",
+                "potentialAction": {
+                    "@type": "SearchAction",
+                    "target": "https://eliterobustontology.github.io/?q={search_term_string}",
+                    "query-input": "required name=search_term_string"
+                }
+                },
+                {
+                "@type": "WebPage",
+                "@id": "https://eliterobustontology.github.io/?payments",
+                "url": "https://eliterobustontology.github.io/",
+                "name": "Elite Robust Ontology",
+                "isPartOf": {
+                    "@id": "https://eliterobustontology.github.io/#website"
+                },
+                "about": {
+                    "@id": "https://eliterobustontology.github.io/#organization"
+                },
+                "primaryImageOfPage": {
+                    "@type": "ImageObject",
+                    "url": "https://eliterobustontology.github.io/logo.jpeg"
+                },
+                "datePublished": "2025-01-01",
+                "dateModified": "2026-07-24"
+                }
+            ]
         }
     </script>
     <meta name="twitter:image" content="https://eliterobustontology.github.io/logo.jpeg">
